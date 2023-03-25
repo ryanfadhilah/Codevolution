@@ -1,23 +1,44 @@
-// function outer() {
-//     let count = 0
-//     function inner() {
-//         count++
-//         console.log(count)
+// let global = 1
+
+// const parentFunction = () => {
+//     let parent = 1
+//     console.log(global)
+//     console.log(parent)
+
+
+//     childFunction = () => {
+//         console.log(global += 1)
+//         console.log(parent += 1)
 //     }
-//     inner()
+
+//     childFunction()
 // }
-// outer()
-// outer()
-function outer() {
-    let count = 0
-    function inner() {
-        count++
-        console.log(count)
+
+// parentFunction()
+
+let global = 1
+
+const parentFunction = () => {
+    let parent = 1
+    console.log(global)
+    console.log(parent)
+
+
+    childFunction = () => {
+        console.log(global += 1)
+        console.log(parent += 1)
     }
-    return inner
+
+    return childFunction
 }
 
-const fn = outer()
+const result = parentFunction()
+// 1
+// 1
 
-fn()
-fn()
+result()
+// 2
+// 2
+result()
+// 3
+// 3
